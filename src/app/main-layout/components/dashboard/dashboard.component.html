@@ -1,0 +1,41 @@
+<div *ngIf="employees?.length; else loading">
+  <table>
+    <thead>
+    <tr>
+      <th>
+        <button
+          class="btn btn-success"
+          [routerLink]="['', 'create']"
+        >+</button>
+      </th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Salary</th>
+      <th>Position Name</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let employee of employees; let idx = index">
+      <td>{{ employee?.id }}</td>
+      <td>{{ employee?.firstName }}</td>
+      <td>{{ employee?.lastName }}</td>
+      <td>{{ employee?.salary }}</td>
+      <td>{{ employee?.positionName }}</td>
+      <td>
+        <button
+          class="btn btn-link open"
+          [routerLink]="['', 'edit', employee?.id]"
+        >
+          Edit
+        </button>
+        <a (click)="remove(employee.id)">Delete</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #loading>
+  <p class="text-center">Loading...</p>
+</ng-template>

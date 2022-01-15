@@ -1,0 +1,18 @@
+<nav class="navbar bg-success">
+  <h1>
+    <a routerLink="/">Final Exam</a>
+  </h1>
+
+  <ul>
+    <li routerLinkActive="active">
+      <a [routerLink]="['', 'dashboard']">Dashboard</a>
+    </li>
+    <li routerLinkActive="active">
+      <a [routerLink]="['', 'list']">List Of Employees</a>
+    </li>
+  </ul>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>

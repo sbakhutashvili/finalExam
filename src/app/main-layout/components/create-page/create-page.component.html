@@ -1,0 +1,72 @@
+<form [formGroup]="form" (ngSubmit)="create()">
+
+  <div
+    class="form-control"
+    [ngClass]="{invalid: form.get('firstName')?.touched && form.get('firstName')?.invalid}"
+  >
+    <label for="firstName">First Name:</label>
+    <input id="firstName" type="text" formControlName="firstName">
+    <div
+      *ngIf="form.get('firstName')?.touched && form.get('firstName')?.invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('firstName')?.errors?.['required']">
+        Enter First Name
+      </small>
+    </div>
+  </div>
+
+  <div
+    class="form-control"
+    [ngClass]="{invalid: form.get('lastName')?.touched && form.get('lastName')?.invalid}"
+  >
+    <label for="lastName">Last Name:</label>
+    <input id="lastName" type="text" formControlName="lastName">
+    <div
+      *ngIf="form.get('lastName')?.touched && form.get('lastName')?.invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('lastName')?.errors?.['required']">
+        Enter Last Name
+      </small>
+    </div>
+  </div>
+
+  <div
+    class="form-control"
+    [ngClass]="{invalid: form.get('salary')?.touched && form.get('salary')?.invalid}"
+  >
+    <label for="salary">Salary:</label>
+    <input id="salary" type="number" formControlName="salary">
+    <div
+      *ngIf="form.get('salary')?.touched && form.get('salary')?.invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('salary')?.errors?.['required']">
+        Enter Salary
+      </small>
+    </div>
+  </div>
+
+  <div
+    class="form-control"
+    [ngClass]="{invalid: form.get('positionName')?.touched && form.get('positionName')?.invalid}"
+  >
+    <label for="positionName">Position Name:</label>
+    <input id="positionName" type="text" formControlName="positionName">
+    <div
+      *ngIf="form.get('positionName')?.touched && form.get('positionName')?.invalid"
+      class="validation"
+    >
+      <small *ngIf="form.get('positionName')?.errors?.['required']">
+        Enter Position Name
+      </small>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="form.invalid || submitted"
+  >Create</button>
+</form>
