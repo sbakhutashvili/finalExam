@@ -58,17 +58,14 @@ export class EditPageComponent implements OnInit {
     this.submitted = true;
 
     const employee: Employees = {
-      id: this.employee.id,
+      id: +this.employee.id,
       firstName: this.form.value.firstName,
       lastName: this.form.value.lastName,
       salary: this.form.value.salary,
       positionName: this.form.value.positionName
     }
-    let idx = mockEmployees.findIndex(f => f.id === this.employee.id)
-
-
-    // @ts-ignore
-    mockEmployees = mockEmployees.splice(mockEmployees[idx], 1, employee);
+    let idx = mockEmployees.findIndex(f => f.id === employee.id);
+    mockEmployees.splice(idx, 1, employee);
     this.router.navigate(['', 'list']);
   }
 
